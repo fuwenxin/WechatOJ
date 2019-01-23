@@ -1,0 +1,15 @@
+<!--pages/solve/solve.wxml-->
+<view class='container'>
+    <button class='btn_rank' open-type='openSetting' bindtap='onRank'>
+        <view>题解排行榜</view>
+    </button>
+    <button class='btn1' open-type='openSetting' bindtap='onDetail'>
+      <view>16级期末算法上机</view>
+    </button>
+    <button class='btn1' open-type='openSetting' bindtap='onSolve'>
+      <view>17级期末数据结构上机</view>
+    </button>
+    <button class='btn1' open-type='openSetting' bindtap='onAnalyse'>
+      <view>18级期末程序设计上机</view>
+    </button>
+</view>

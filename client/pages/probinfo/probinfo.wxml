@@ -1,0 +1,22 @@
+<!--pages/probinfo/probinfo.wxml-->
+<view class='container'>
+  <view class='title'>
+    中等·AlvinZH的序列问题
+  </view>
+  <view class='description'>
+    AlvinZH在见识了最长上升子序列、最长不减子序列、最长下降子序列、最长不增子序列以及最长公共子序列等各种子序列问题后，对子序列一词有了充分的了解。这不，他又遇到了一个看似相似的问题，最后的机会，留给你们！
+
+    现有一数字序列，AlvinZH从中取出一些数字元素，就可以组成一个等差数列，他想知道这个等差数列最多能有多少个元素，原序列每个元素最多只能取一次。
+  </view>
+  <view class = 'input'>
+  输入包括多组数据。
+
+  每组数据第一行为整数n，表示输入序列的元素个数（3≤ n ≤10^4）.
+
+  接下来一行是n个不同的正整数Ai（1≤ Ai ≤10^9）。
+  </view>
+  <view class='output'>
+  对于每组数据，输出一行，为最长的等差数列的长度（元素个数）。
+  </view>
+  <button class='onSolve'>查看题解</button>
+</view>
