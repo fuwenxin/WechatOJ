@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/addCgi/addCgi",
+    "pages/analyse/analyse",
+    "pages/home/home",
+    "pages/info/info",
+    "pages/solveDetail/solveDetail",
+    "pages/probinfo/probinfo",
+    "pages/problem/problem",
+    "pages/logs/logs",
+    "pages/solve/solve",
+    "pages/rank/rank"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "Wafer Quick Start",
+    "navigationBarTextStyle": "black"
+  }
+}
