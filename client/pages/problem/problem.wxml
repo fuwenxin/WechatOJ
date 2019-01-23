@@ -1,11 +1,11 @@
 <view class="index">
-    <button class='btn1' open-type='openSetting' bindtap='onProblem'>
+    <button class='btn1'  bindtap='onProblem'>
       <view>16级期末算法上机</view>
     </button>
-    <button class='btn1' open-type='openSetting' bindtap='onSolve'>
+    <button class='btn1' bindtap='onSolve'>
       <view>17级期末数据结构上机</view>
     </button>
-    <button class='btn1' open-type='openSetting' bindtap='onAnalyse'>
+    <button class='btn1'  bindtap='onAnalyse'>
       <view>18级期末程序设计上机</view>
     </button>
   </view>

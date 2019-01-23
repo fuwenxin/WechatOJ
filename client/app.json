@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/addCgi/addCgi",
     "pages/analyse/analyse",
     "pages/home/home",
     "pages/info/info",
@@ -19,4 +18,6 @@
     "navigationBarTitleText": "Wafer Quick Start",
     "navigationBarTextStyle": "black"
   }
+  ,
+  "cloud": true
 }

@@ -1,20 +1,22 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <open-data class="userinfo-avatar" type="userAvatarUrl" mode="cover" ></open-data>
+    <open-data type="userNickName"></open-data>
+    <!-- <button  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="onHome" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+    </block> -->
   </view>
   <view class="index">
-    <button class='btn1' open-type='openSetting' bindtap='onProblem'>
+    <button class='btn1'  bindtap='onProblem'>
       <view>查看所有题目</view>
     </button>
-    <button class='btn2' open-type='openSetting' bindtap='onSolve'>
+    <button class='btn2'  bindtap='onSolve'>
       <view>查看所有题解</view>
     </button>
-    <button class='btn3' open-type='openSetting' bindtap='onAnalyse'>
+    <button class='btn3'  bindtap='onAnalyse'>
       <view>查看个人量化分析</view>
     </button>
   </view>

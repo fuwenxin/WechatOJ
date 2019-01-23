@@ -1,0 +1,5 @@
+<!--pages/solveDetail/solveDetail.wxml-->
+<view class="approval">
+  点赞
+</view>
+<wemark md="{{md}}" link highlight type="wemark"></wemark>
