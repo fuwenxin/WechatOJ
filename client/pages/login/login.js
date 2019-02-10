@@ -1,5 +1,6 @@
 // client/pages/login/login.js
-const app = getApp()
+var util = require('../../utils/util.js')
+var app = getApp()
 
 Page({
 
@@ -10,6 +11,7 @@ Page({
     username:'',
     password:'',
     isHide: false,
+    db: null,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
 
@@ -17,7 +19,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this
+    this.setData({
+      db: wx.cloud.database()
+    })
+    var openId = null
+    wx.cloud.callFunction({
+      name: 'getOpenId',
+      complete: res => {
+        console.log('callFunction test result: ', res)
+        openId = res.result.openid
+      }
+    })
+    this.data.db.collection('login_info').where({
+      _openid: openId
+    }).get({success(res){
+        console.log(res.data)
+        that.setData({
+          isHide:true
+        })
+      }
+    })
   },
 
 
@@ -26,7 +48,6 @@ Page({
    */
   formsubmit: function(e){
     var that = this;
-    console.log(e)
     this.setData({
       username: e.detail.value.username,
       password: e.detail.value.password
@@ -34,18 +55,32 @@ Page({
     var bindName = that.data.username;
     var bindPassword = that.data.password;
     var isSuccess = false;
-    console.log(this.data)
     if (bindName.length !== 0 && bindPassword !== 0) {
-      isSuccess = true;
-      wx.cloud.init({
-        env: 'wechatoj-env-21b763',
-        traceUser: true
+      this.data.db.collection('login_info').add({
+        data:{
+          userName: bindName,
+          passWord: escape(bindPassword)
+        }
       })
+      if (bindPassword == util.getOJUserInfo(bindName)){
+        isSuccess = true;
+      }
     }
     if (isSuccess) {
       this.setData({
         isHide: true
       })
+    }
+  },
+  //js核心代码：其中利用backtype来确认授权登录后跳转回那个页面
+  bindGetUserInfo: function (e) {
+    console.log(app.globalData)
+    if (e.detail.userInfo) {
+      wx.redirectTo({
+        url: '../index/index' 
+      })
+    } else {
+      this.showZanTopTips('很遗憾，您拒绝了微信授权，宝宝很伤心');
     }
   },
   /**

@@ -39,4 +39,8 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel }
+var getOJUserInfo = (userName) => {
+  return "123";
+}
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, getOJUserInfo}
