@@ -13,10 +13,10 @@
     "pages/rank/rank"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "blue",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Wafer Quick Start",
+    "navigationBarTitleText": "OJ 在线题解",
     "navigationBarTextStyle": "black"
   },
   "cloud": true

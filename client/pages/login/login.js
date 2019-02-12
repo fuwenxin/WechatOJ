@@ -12,6 +12,7 @@ Page({
     password:'',
     isHide: false,
     db: null,
+    openId: null,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
 
@@ -23,21 +24,37 @@ Page({
     this.setData({
       db: wx.cloud.database()
     })
-    var openId = null
+    wx.showLoading({
+      title: '正在加载中',
+    })
     wx.cloud.callFunction({
       name: 'getOpenId',
       complete: res => {
         console.log('callFunction test result: ', res)
-        openId = res.result.openid
-      }
-    })
-    this.data.db.collection('login_info').where({
-      _openid: openId
-    }).get({success(res){
-        console.log(res.data)
         that.setData({
-          isHide:true
+          openId: res.result.openid
         })
+        console.log(this.data)
+        if (this.data.openId != null) {
+          this.data.db.collection('login_info').where({
+            _openid: that.data.openId
+          }).get({
+            success(res) {
+              wx.hideLoading();
+              var b = (JSON.stringify(res.data) == "[]");
+              console.log(b)
+              console.log(JSON.stringify(res))
+              if(!b){
+                wx.redirectTo({
+                  url: '../index/index'
+                })
+              }
+            }
+          })
+        }
+        else {
+          console.log("未成功获取openId")
+        }
       }
     })
   },
